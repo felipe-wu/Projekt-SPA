@@ -1,0 +1,113 @@
+.main-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
+    // dzięki z-index" nasze main nav będzie zawsze pokrywało inne rzeczy pod spodem :)
+    z-index: 9999;
+    background-color: white;
+    padding: 12px 0;
+
+    .main-nav-holder {
+        @include flexbox;
+        justify-content: space-between;
+    }
+
+    .brand {
+        height: 50px;
+        display: inline-block;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    %mobile-controls {
+        font-size: 28px;
+        line-height: 50px;
+        cursor: pointer;
+    }
+
+    .mobile-hamburger {
+        @extend %mobile-controls;
+        color: $primary-color;
+    }  
+    
+    .mobile-close {
+        @extend %mobile-controls;
+        color: white;
+        text-align: right;
+        height: 50px;
+    }
+
+    .open-menu-holder {
+        position: fixed;
+        background-color: $primary-color;
+        top: 0;
+        right: 0;
+        padding: 12px 23px;
+        text-align: right;
+        max-width: 480px;
+        width: 480px;
+        display: none;
+
+        &.open {
+            display: block;
+        }
+
+        .menu {
+            list-style: none;
+
+            .menu-item {
+                font-size: 50px;
+                text-transform: uppercase;
+                padding: 20px 0;
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    @media all and (min-width: $large) {
+
+        .main-nav-holder {
+            justify-content: flex-start;
+            // left: 0;
+        }
+
+        .brand {
+            height: 80px;
+        }
+
+        %mobile-controls {
+            display: none;
+        }
+
+        .open-menu-holder {
+            display: block;
+            position: static;
+            background-color: transparent;
+            width: auto;
+            max-width: 100%;
+            padding: 0;
+
+            .menu {
+                background-color: white;
+
+                .menu-item {
+                    display: inline-block;
+                    margin: 0 20px;
+                    font-size: initial;
+
+                    a {
+                        color: $secondary-color;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
