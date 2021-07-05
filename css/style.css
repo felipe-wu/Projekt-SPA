@@ -271,6 +271,10 @@ p {
   line-height: 1.5;
 }
 
+button {
+  transition: all .3s;
+}
+
 section {
   padding: 30px 0;
 }
@@ -546,6 +550,9 @@ section .section-header p {
   .col-md-33p {
     width: 33.33%;
   }
+  .col-md-66p {
+    width: 66.66%;
+  }
 }
 
 @media all and (min-width: 992px) {
@@ -593,7 +600,149 @@ section .section-header p {
   color: white;
 }
 
-.btn-primary, .btn-secondary {
+.appointment {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.appointment .desktop-bg {
+  background-size: cover;
+  width: 40%;
+  background-position: center;
+}
+
+.appointment form {
+  width: 100%;
+  background-color: #1ba5cd;
+  padding: 80px 40px;
+}
+
+.appointment form .appointment-message {
+  width: 100%;
+  display: none;
+}
+
+.appointment form .appointment-message.error {
+  color: red;
+  display: block;
+}
+
+@media all and (min-width: 992px) {
+  .appointment form {
+    width: 60%;
+    padding: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .appointment form input,
+  .appointment form select {
+    width: 49%;
+  }
+  .appointment form textarea {
+    margin: 60px 0;
+  }
+}
+
+.team {
+  padding-bottom: 200px;
+}
+
+.contact {
+  color: white;
+  background-color: #1ba5cd;
+}
+
+.contact .section-header {
+  color: white;
+}
+
+.contact .section-header h2 {
+  color: white;
+}
+
+.contact .contact-data {
+  padding: 25px 0;
+  margin-bottom: 30px;
+}
+
+.contact .contact-data .contact-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.contact .contact-data .contact-item .img-holder {
+  width: 15%;
+  margin-right: 15px;
+  text-align: center;
+}
+
+.contact .contact-data .contact-item .img-holder img {
+  width: 40px;
+}
+
+.contact .contact-data .contact-item a {
+  color: white;
+  text-decoration: none;
+}
+
+.contact .contact-data .contact-item a:hover {
+  text-decoration: underline;
+}
+
+@media all and (min-width: 768px) {
+  .contact .contact-data .contact-item {
+    justify-content: flex-start;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .contact .contact-data {
+    width: 100%;
+  }
+}
+
+.contact .contact-form {
+  padding: 25px 0;
+  margin-bottom: 30px;
+}
+
+.page-footer {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.page-footer img {
+  width: 100px;
+}
+
+.page-footer .footer-nav .menu {
+  background-color: white;
+  padding: 20px 0;
+}
+
+.page-footer .footer-nav .menu .menu-item {
+  display: inline-block;
+  margin: 0 20px;
+  font-size: initial;
+  text-transform: uppercase;
+}
+
+.page-footer .footer-nav .menu .menu-item a {
+  color: #473452;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.page-footer .footer-nav .menu-item {
+  padding: 15px 0;
+}
+
+.btn-primary, .btn-secondary, .btn-form {
   border-radius: 30px;
   display: inline-block;
   padding: 15px 35px;
@@ -619,6 +768,17 @@ section .section-header p {
   background-color: #1ba5cd;
 }
 
+.btn-form {
+  color: #473452;
+  background-color: white;
+  font-weight: 700;
+}
+
+.btn-form:hover {
+  background-color: #30383b;
+  color: white;
+}
+
 .infobox, .infobox-team {
   padding: 0 10px;
   margin-top: 30px;
@@ -629,6 +789,24 @@ section .section-header p {
   border: 1px solid grey;
   padding: 25px;
   border-radius: 2px;
+}
+
+.infobox .infobox-inner .meta {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+
+.infobox .infobox-inner .meta .category {
+  margin-right: 8px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.infobox .infobox-inner .meta .post-date {
+  margin-left: 8px;
+  color: inherit;
+  text-decoration: none;
 }
 
 .infobox .infobox-inner:hover {
@@ -695,5 +873,53 @@ section .section-header p {
   border: 1px solid #1ba5cd;
   color: white;
   background-color: #1ba5cd;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid white;
+  background-color: #1ba5cd;
+  display: inline-block;
+  padding: 15px;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+select::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: white;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder,
+select::-moz-placeholder {
+  /* Firefox19+ */
+  color: white;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+select:-ms-input-placeholder {
+  /* IE 10+ */
+  color: white;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder,
+select:-moz-placeholder {
+  /* Firefox18- */
+  color: white;
+}
+
+input.error,
+textarea.error,
+select.error {
+  border-bottom: 1px solid red;
 }
 /*# sourceMappingURL=style.css.map */
