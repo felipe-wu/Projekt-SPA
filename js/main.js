@@ -9,7 +9,7 @@ document.getElementsByClassName('mobile-close')[0].addEventListener('click', fun
 document.getElementById('appointment-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const appointmentMessage = document.querySelector('.appointment-message');
+    const appointmentMessage = document.querySelector('#appointment-message');
     let formFields = document.getElementsByClassName('form-field');
     let allFields = false;
     let appointment = {
@@ -33,7 +33,7 @@ document.getElementById('appointment-form').addEventListener('submit', function(
     };
 
     if(allFields) {
-        console.log('wysłanie');
+        console.log(appointment);
     } else {
         appointmentMessage.classList.add('error');
         appointmentMessage.innerText = `wypełnij pole`;
