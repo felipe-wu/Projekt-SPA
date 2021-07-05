@@ -6,6 +6,28 @@ document.getElementsByClassName('mobile-close')[0].addEventListener('click', fun
     document.getElementsByClassName('open-menu-holder')[0].classList.toggle('open');
 });
 
+
+
+const createApp = (appointment) => {
+    const appointmentMessage = document.querySelector('#appointment-message');
+
+    fetch('https://akademia108.pl/api/ajax/post-appointment.php', {
+        headers: {
+            'content-type': 'application/json',
+        },
+        mode: 'cors',
+        method: 'POST',
+        body: JSON.stringify(appointment)
+    }).then(res => res.json())
+    .then(resJSON => {
+        console.log(resJSON);
+        appointmentMessage.classList.add('send');
+        appointmentMessage.innerText = `Dziękujemy ${resJSON.appointment.name}. Zostałeś zapisany!`
+    });
+};
+
+
+// obsługa formularza
 document.getElementById('appointment-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -33,7 +55,7 @@ document.getElementById('appointment-form').addEventListener('submit', function(
     };
 
     if(allFields) {
-        console.log(appointment);
+        createApp(appointment);
     } else {
         appointmentMessage.classList.add('error');
         appointmentMessage.innerText = `wypełnij pole`;
